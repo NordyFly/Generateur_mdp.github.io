@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Mot de Passe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="./script.js" defer></script>
+</head>
+<body class="bg-gray-200">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-6 rounded-md shadow-lg w-full max-w-sm">
+            <h2 class="text-center text-xl font-semibold mb-4">Générateur de Mot de Passe</h2>
+            <div class="text-center mb-4">
+                <span id="result" class="font-medium"></span>
+            </div>
+            <div class="text-center mb-4">
+                <button class="btn bg-blue-500 text-white py-1 px-3" id="clipboard">
+                    <i class="far fa-copy"></i> Copier le Mot de Passe
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <div class="mb-2 text-center">
+                    <label for="length" class="block font-medium">Longueur du Mot de Passe</label>
+                    <input type="range" id="length" class="form-range" min="4" max="20" value="20">
+                    <div class="text-center mt-2">
+                        <span id="lengthLabel">20</span> caractères
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <input type="checkbox" class="form-checkbox" id="uppercase" checked>
+                    <label class="ml-2">Inclure les lettres majuscules</label>
+                </div>
+                <div class="mb-2">
+                    <input type="checkbox" class="form-checkbox" id="lowercase" checked>
+                    <label class="ml-2">Inclure les lettres minuscules</label>
+                </div>
+                <div class="mb-2">
+                    <input type="checkbox" class="form-checkbox" id="numbers" checked>
+                    <label class="ml-2">Inclure les chiffres</label>
+                </div>
+                <div class="mb-2">
+                    <input type="checkbox" class="form-checkbox" id="symbols" checked>
+                    <label class="ml-2">Inclure les symboles</label>
+                </div>
+            </div>
+            <button class="btn bg-green-500 text-white w-full py-2" id="generate">
+                Générer le Mot de Passe
+            </button>
+        </div>
+    </div>
+
+    <div class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" id="copyModal">
+        <div class="bg-white p-4 rounded-md shadow-md">
+            <h3 class="font-semibold mb-2 text-center">Mot de Passe Copié</h3>
+            <p class="text-center">Le mot de passe a été copié dans votre presse-papiers.</p>
+            <button class="btn bg-blue-500 text-white py-1 px-3 mt-3 mx-auto" id="closeModal">Fermer</button>
+        </div>
+    </div>
+
+
+</body>
+</html>
